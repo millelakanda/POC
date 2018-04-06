@@ -1,0 +1,17 @@
+<div class="col-md-12 search-container">
+  <input type="text" class="form-control input-sm" id="search-input" [(ngModel)]="searchFor" placeholder="Search" auto-focus/>
+  <button class="btn btn-default search-btn" type="button" id="search-btn" (click)="getSearchResults()">Search</button>
+</div>
+
+<div class="col-md-12 selectors-container">
+  <select class="select" [(ngModel)]="selectedHospital" (ngModelChange)='getHospitalData($event)'>
+    <option *ngFor="let hospital of hospitalList; let i = index" data-index="i" [value]="hospital.name" [selected]="selectedHospital">{{hospital.name}}</option>
+  </select>
+<!-- 
+  <select class="select" [(ngModel)]="selectedService" (ngModelChange)='getHospitalData($event)'>
+    <ng-container *ngIf="hospitalList.length > 0">
+      <option *ngFor="let service of hospitalList[selectedHospital].serviceList" [value]="serviceList" [selected]="selectedService">{{serviceList}}</option>
+    </ng-container>
+  </select> -->
+
+</div>
